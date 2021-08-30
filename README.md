@@ -8,7 +8,7 @@
   
 - 输入命令直接获得payload，方便编写安全工具
 
-- 目前已支持CC1--CC7，考虑后续加入常用的K1-K4和TomcatEcho
+- 目前已支持CC1-CC7，K1-K4和CB1
 
 ## Introduce
 
