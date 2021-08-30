@@ -42,7 +42,7 @@ func GetCommonsCollections3(cmd string) []byte {
 		"6572746965737400164C6A6176612F7574696C2F50726F706572746965733B7870000000" +
 		"00FFFFFFFF757200035B5B424BFD19156767DB37020000787000000002757200025B42AC" +
 		"F317F8060854E00200007870"
-	templateImpl := GetTemplateImpl(cmd)
+	templateImpl := GetFrohoffTemplateImpl(cmd)
 	templateImplStr := hex.EncodeToString(templateImpl)
 	length := len(templateImpl)
 	lenStr := util.Int32ToBytes(uint32(length))
