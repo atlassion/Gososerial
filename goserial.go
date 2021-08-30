@@ -4,6 +4,10 @@ import (
 	"github.com/EmYiQing/Gososerial/ysoserial/gadget"
 )
 
+func GetCB1(cmd string) []byte {
+	return gadget.GetCommonsBeanutils1(cmd)
+}
+
 func GetCC1(cmd string) []byte {
 	return gadget.GetCommonsCollections1(cmd)
 }
@@ -34,6 +38,7 @@ func GetCC7(cmd string) []byte {
 
 func GetAllNames() []string {
 	return []string{
+		gadget.CB1,
 		gadget.CC1,
 		gadget.CC2,
 		gadget.CC3,
