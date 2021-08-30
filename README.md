@@ -34,7 +34,7 @@ List of Supported
 ## Quick Start
 
 ```shell
-go get github.com/EmYiQing/Gososerial
+go get github.com/EmYiQing/Gososerial@v0.0.2
 ```
 
 ```go
