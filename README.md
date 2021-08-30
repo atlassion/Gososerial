@@ -18,6 +18,8 @@
 
 - Enter the command to directly obtain the payload, which is convenient for writing security tools
 
+- Support CommonsCollections1-7,K1-K4,CommonsBeanutils1 Now
+
 ## Example
 
 CommonsCollections1 Payload
