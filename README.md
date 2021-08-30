@@ -50,11 +50,11 @@ func main()  {
 }
 ```
 
-Example: Shiro Scan
+Example
 
 ```go
 func TestFindShiro(t *testing.T) {
-	......
+	// Shiro Scan Code
 	target := "http://shiro_ip/"
 	// Brust Shiro AES Key 
 	key := shiro.CheckShiroKey(target)
@@ -70,7 +70,6 @@ func TestFindShiro(t *testing.T) {
 	if ceye.CheckResult("your_ceye_token") {
 		log.Info("find shiro!")
 	}
-	......
 }
 ```
 
