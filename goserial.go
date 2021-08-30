@@ -36,6 +36,22 @@ func GetCC7(cmd string) []byte {
 	return gadget.GetCommonsCollections7(cmd)
 }
 
+func GetCCK1(cmd string) []byte {
+	return gadget.GetCommonsCollectionsK1(cmd)
+}
+
+func GetCCK2(cmd string) []byte {
+	return gadget.GetCommonsCollectionsK2(cmd)
+}
+
+func GetCCK3(cmd string) []byte {
+	return gadget.GetCommonsCollectionsK3(cmd)
+}
+
+func GetCCK4(cmd string) []byte {
+	return gadget.GetCommonsCollectionsK4(cmd)
+}
+
 func GetAllNames() []string {
 	return []string{
 		gadget.CB1,
@@ -46,5 +62,9 @@ func GetAllNames() []string {
 		gadget.CC5,
 		gadget.CC6,
 		gadget.CC7,
+		gadget.CCK1,
+		gadget.CCK2,
+		gadget.CCK3,
+		gadget.CCK4,
 	}
 }
