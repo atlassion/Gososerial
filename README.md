@@ -82,3 +82,7 @@ func TestFindShiro(t *testing.T) {
 **xray**: https://github.com/chaitin/xray
 
 **phith0n**: https://github.com/phith0n
+
+## 免责申明
+
+未经授权许可使用Gososerial攻击目标是非法的。本程序应仅用于授权的安全测试与研究目的。
