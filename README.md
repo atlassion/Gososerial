@@ -8,7 +8,7 @@
   
 - 输入命令直接获得payload，方便编写安全工具
 
-- 目前已支持CC1-CC7，K1-K4和CB1
+- 目前已支持CC1-CC7，K1-K4和CB1链
 
 ## Introduce
 
@@ -53,7 +53,7 @@ func main()  {
 Example
 
 ```go
-func TestFindShiro(t *testing.T) {
+func main() {
 	// Shiro Scan Code
 	target := "http://shiro_ip/"
 	// Brust Shiro AES Key 
@@ -85,4 +85,6 @@ func TestFindShiro(t *testing.T) {
 
 ## 免责申明
 
-未经授权许可使用Gososerial攻击目标是非法的。本程序应仅用于授权的安全测试与研究目的。
+未经授权许可使用Gososerial攻击目标是非法的
+
+本程序应仅用于授权的安全测试与研究目的。
