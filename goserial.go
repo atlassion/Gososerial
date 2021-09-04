@@ -40,8 +40,16 @@ func GetCCK1(cmd string) []byte {
 	return gadget.GetCommonsCollectionsK1(cmd)
 }
 
+func GetCCK1TomcatEcho(echoHeaderName, cmdHeaderName string) []byte {
+	return gadget.GetCCK1TomcatEcho(echoHeaderName, cmdHeaderName)
+}
+
 func GetCCK2(cmd string) []byte {
 	return gadget.GetCommonsCollectionsK2(cmd)
+}
+
+func GetCCK2TomcatEcho(echoHeaderName, cmdHeaderName string) []byte {
+	return gadget.GetCCK2TomcatEcho(echoHeaderName, cmdHeaderName)
 }
 
 func GetCCK3(cmd string) []byte {
@@ -63,7 +71,9 @@ func GetAllNames() []string {
 		gadget.CC6,
 		gadget.CC7,
 		gadget.CCK1,
+		gadget.CCK1TomcatEcho,
 		gadget.CCK2,
+		gadget.CCK2TomcatEcho,
 		gadget.CCK3,
 		gadget.CCK4,
 	}

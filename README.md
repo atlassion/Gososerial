@@ -10,6 +10,8 @@
 
 - 目前已支持CC1-CC7，K1-K4和CB1链
 
+- 支持K1和K2的TomcatEcho，HTTP头可自行取名
+
 ## Introduce
 
 - Ysoserial is a well-known tool for Java deserialization security
@@ -18,7 +20,9 @@
 
 - Enter the command to directly obtain the payload, which is convenient for writing security tools
 
-- Support CommonsCollections1-7,K1-K4,CommonsBeanutils1 Now
+- Support CommonsCollections1-7, K1-K4, CommonsBeanutils1 now
+
+- Support TomcatEcho K1-K2, and the HTTP header name can be edited
 
 ## Example
 
@@ -48,6 +52,14 @@ func main()  {
 	sendPayload(payload)
 	......
 }
+```
+
+TomcatEcho
+
+```go
+// Testecho: expr 10 '*' 10 -> expr 10 '*' 10
+// Testcmd: expr 10 '*' 10 -> 100
+payload := gososerial.GetCCK2TomcatEcho("Testecho", "Testcmd")
 ```
 
 Example
