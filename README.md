@@ -3,8 +3,8 @@
 ## 介绍
 
 - ysoserial是java反序列化安全方面著名的工具
-  
-- 无需java环境，无需下载ysoserial.jar文件
+
+- 从二进制层面解析，无需java环境，无需下载ysoserial.jar
   
 - 输入命令直接获得payload，方便编写安全工具
 
