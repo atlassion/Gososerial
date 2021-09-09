@@ -2,6 +2,8 @@
 
 ## 介绍
 
+- 参考著名安全工具xray的代码
+
 - ysoserial是java反序列化安全方面著名的工具
 
 - 从二进制层面解析，无需java环境，无需下载ysoserial.jar
